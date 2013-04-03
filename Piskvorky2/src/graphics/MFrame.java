@@ -11,10 +11,13 @@ public class MFrame extends JFrame {
 
     public MFrame() {
         super("Piskvorky");
+        this.setLocation(100, 100);
         setSize(500, 500);
+//        this.pack();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
-        this.add(new Menu());
+        this.add(new PlayField());
+        
         setVisible(true);
     }
 
@@ -24,5 +27,6 @@ public class MFrame extends JFrame {
         }
         this.add(komponenta);
         akt = komponenta;
+//        this.repaint();
     }
 }

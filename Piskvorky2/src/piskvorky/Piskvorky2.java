@@ -2,6 +2,7 @@ package piskvorky;
 
 import graphics.MFrame;
 import graphics.Menu;
+import graphics.PlayField;
 import java.util.Scanner;
 
 public class Piskvorky2 {
@@ -11,13 +12,20 @@ public class Piskvorky2 {
     static Hra play = null;
 
     public static void menu() { //zobrazuje menu po zadani souradnic 0 0
-        MFrame hlokno = new MFrame();
+        
+        
+        MFrame hlOkno = new MFrame();
+       
+        
         cyklus:
         while (true) {
             System.out.println("Hlavni menu");
             System.out.println("A - Nova hra\nB - Uloz hru\nC - Nacti hru\nD - Zpet \nE - Konec hry");
             switch (sc.next()) {
                 case "A": {
+                    
+                    hlOkno.zobrazComp(new PlayField());
+                    
                     int velikost = 0;
                     while (true) {
                         try {
