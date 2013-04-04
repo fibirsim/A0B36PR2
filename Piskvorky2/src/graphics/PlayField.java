@@ -1,46 +1,33 @@
 package graphics;
 
+import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
 public class PlayField extends JComponent {
-    
+
     JPanel field;
-    
+
     public PlayField() {
-        
+        this(40);
+    }
+
+    public PlayField(int size) {
+        this.setLayout(new BorderLayout());
         field = new JPanel();
+        this.add(field, BorderLayout.CENTER);
         
-        FlowLayout l = new FlowLayout(FlowLayout.CENTER);
+        JComponent comp = new JComponent() {};
+            
+        comp.setLayout(new FlowLayout());
+        JButton b = new JButton("Ulozit hru");
+        comp.add(b);
+        b= new JButton("Ukoncit");
+        comp.add(b);
         
-        field.setLayout(l);
-        
-        JButton b1 = new JButton("Menu");
-        
-        field.add(b1);
-        
-//        field.setVisible(true);
-//        
-//        this.add(field);
-//        this.setVisible(true);
         
     }
-   
-//    public JPanel createPanelPlayField() {
-//        
-//        JPanel p = new JPanel();
-//        
-//        FlowLayout l = new FlowLayout(FlowLayout.CENTER);
-//        
-//        p.setLayout(l);
-//        
-//        p.add(new JButton("Menu"));
-//        
-//        return p;       
-//    }
-    
-    
     
 }
