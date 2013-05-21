@@ -1,5 +1,6 @@
 package GUI.listeners;
 
+import GUI.MainFrame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.DataOutputStream;
@@ -28,7 +29,7 @@ public class RadioMenuListener implements ActionListener {
                 Const.setCircle(ImageIO.read(new File("icons/" + Const.getIconType() + "/circle.png")));
             }
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Invalid icon pack!");
+            JOptionPane.showMessageDialog(MainFrame.getInstance(), "Invalid icon pack!","Invalid icons",JOptionPane.ERROR_MESSAGE);
             Const.setCircle(null);
             Const.setCross(null);
         }

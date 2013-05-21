@@ -12,7 +12,7 @@ public class Const {
     public static final String EXIT = "Exit";
     
     public static final int HUMAN = 111;
-    public static final int UI = 112;
+    public static final int AI = 112;
     public static final int LAN = 114;
     
     public static final int PORT = 9903;

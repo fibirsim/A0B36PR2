@@ -59,6 +59,7 @@ public class LANGame extends Game {
                     out.writeInt(played.getX());
                 } catch (IOException ex) {
                     System.out.println(ex);
+                    JOptionPane.showMessageDialog(MainFrame.getInstance(), "Vypadlo spojeni", "Connection Error",JOptionPane.ERROR_MESSAGE);
                 }
             }
             MainFrame.getInstance().getGameField().markPoint(played, players[onMove].getMark());

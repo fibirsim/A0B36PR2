@@ -30,8 +30,9 @@ public class LocalGame extends Game {
 
     @Override
     public void destroy() {
-        if (this.isAlive()) {
+        if (this.isAlive()) {            
             this.stop();
+            this.interrupt();
         }
     }
 }

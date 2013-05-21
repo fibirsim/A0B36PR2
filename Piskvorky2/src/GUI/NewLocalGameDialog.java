@@ -15,18 +15,18 @@ import javax.swing.JDialog;
 import javax.swing.JTextField;
 import main.Value;
 import players.HumanPlayer;
-import players.UIPlayer;
+import players.AIPlayer;
 
 public class NewLocalGameDialog extends JDialog implements ActionListener {
 
     private JTextField name1 = new JTextField(9);
     private JTextField name2 = new JTextField(9);
-    private String[] players = {"Human Player", "UI Player"};
+    private String[] players = {"Human Player", "AI Player"};
     private JComboBox pl1 = new JComboBox(players);
     private JComboBox pl2 = new JComboBox(players);
 
     public NewLocalGameDialog(Frame owner) {
-        super(owner);
+        super(owner,true);
         this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         this.setResizable(false);
         this.setSize(600, 400);
@@ -82,19 +82,6 @@ public class NewLocalGameDialog extends JDialog implements ActionListener {
     }
 
     @Override
-    public final void setVisible(boolean visible) {
-        this.getOwner().setFocusableWindowState(!visible);
-        this.getOwner().setEnabled(!visible);
-        super.setVisible(visible);
-    }
-
-    @Override
-    public void dispose() {
-        this.setVisible(false);
-        super.dispose();
-    }
-
-    @Override
     public void actionPerformed(ActionEvent e) {
         if (name1.getText().trim().length() > 0 && name2.getText().trim().length() > 0) {
             if (MainFrame.getInstance().getGame() != null) {
@@ -109,13 +96,13 @@ public class NewLocalGameDialog extends JDialog implements ActionListener {
                 game = new LocalGame(new HumanPlayer(name1.getText().trim(), Value.O), new HumanPlayer(name2.getText().trim(), Value.X));
             }
             if ((pl1.getSelectedItem().equals(players[0]) && pl2.getSelectedItem().equals(players[1]))) {
-                game = new LocalGame(new HumanPlayer(name1.getText().trim(), Value.O), new UIPlayer(name2.getText().trim(), Value.X));
+                game = new LocalGame(new HumanPlayer(name1.getText().trim(), Value.O), new AIPlayer(name2.getText().trim(), Value.X));
             }
             if ((pl1.getSelectedItem().equals(players[1]) && pl2.getSelectedItem().equals(players[0]))) {
-                game = new LocalGame(new UIPlayer(name1.getText().trim(), Value.O), new HumanPlayer(name2.getText().trim(), Value.X));
+                game = new LocalGame(new AIPlayer(name1.getText().trim(), Value.O), new HumanPlayer(name2.getText().trim(), Value.X));
             }
             if ((pl1.getSelectedItem().equals(players[1]) && pl2.getSelectedItem().equals(players[1]))) {
-                game = new LocalGame(new UIPlayer(name1.getText().trim(), Value.O), new UIPlayer(name2.getText().trim(), Value.X));
+                game = new LocalGame(new AIPlayer(name1.getText().trim(), Value.O), new AIPlayer(name2.getText().trim(), Value.X));
             }          
 
             MainFrame.getInstance().setGame(game);

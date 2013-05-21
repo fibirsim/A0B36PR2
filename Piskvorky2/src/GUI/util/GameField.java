@@ -30,7 +30,7 @@ public final class GameField extends JPanel implements MouseListener, ActionList
         this.addMouseListener(this);
         BORDER_SIZE = 7;
         GAME_SIZE = size;
-        WINDOW_SIZE = new Dimension(703 + (BORDER_SIZE * 2), 703 + (BORDER_SIZE * 2));
+        WINDOW_SIZE = new Dimension(570 + (BORDER_SIZE * 2), 570 + (BORDER_SIZE * 2));
         FIELD_SIZE = new Dimension((WINDOW_SIZE.width - (2 * BORDER_SIZE)) / GAME_SIZE, (WINDOW_SIZE.height - (2 * BORDER_SIZE)) / GAME_SIZE);
         field = new Value[GAME_SIZE][GAME_SIZE];
         this.setPreferredSize(WINDOW_SIZE);

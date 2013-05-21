@@ -38,7 +38,7 @@ public class NewLanGameDialog extends JDialog implements ActionListener {
 
 
     public NewLanGameDialog(Frame owner) {
-        super(owner);
+        super(owner,true);
         this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         this.setResizable(false);
         this.setSize(400, 400);
@@ -114,19 +114,6 @@ public class NewLanGameDialog extends JDialog implements ActionListener {
         vc2.setVisible(!(LanConn.getSelectedIndex() == 0));
         myAdress.setVisible((LanConn.getSelectedIndex() == 0));
         myAdress.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
-    }
-
-    @Override
-    public final void setVisible(boolean visible) {
-        this.getOwner().setFocusableWindowState(!visible);
-        this.getOwner().setEnabled(!visible);
-        super.setVisible(visible);
-    }
-
-    @Override
-    public void dispose() {
-        this.setVisible(false);
-        super.dispose();
     }
 
     @Override

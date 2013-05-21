@@ -5,11 +5,11 @@ import main.Const;
 import main.Point;
 import main.Value;
 
-public class UIPlayer extends Player {
+public class AIPlayer extends Player {
 
-    public UIPlayer(String name, Value mark) {
+    public AIPlayer(String name, Value mark) {
         super(name, mark);
-        playerType = Const.UI;
+        playerType = Const.AI;
     }
 
     @Override

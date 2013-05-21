@@ -20,7 +20,7 @@ import main.Const;
 import main.Point;
 import main.Value;
 import players.HumanPlayer;
-import players.UIPlayer;
+import players.AIPlayer;
 
 public class MenuListener implements ActionListener {
 
@@ -71,12 +71,12 @@ public class MenuListener implements ActionListener {
             JFileChooser fileChooser = new JFileChooser("./saves");
             fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
             fileChooser.setAcceptAllFileFilterUsed(false);
-            fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Saved Games", "sav6"));
+            fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Saved Games", "sav5"));
 
             if (fileChooser.showSaveDialog(MainFrame.getInstance()) == JFileChooser.APPROVE_OPTION) {
                 File file = fileChooser.getSelectedFile();
-                if (!file.getName().endsWith(".sav6")) {
-                    file = new File(file.getAbsoluteFile() + ".sav6");
+                if (!file.getName().endsWith(".sav5")) {
+                    file = new File(file.getAbsoluteFile() + ".sav5");
                 }
 
                 try (DataOutputStream out = new DataOutputStream(new FileOutputStream(file))) {
@@ -102,7 +102,7 @@ public class MenuListener implements ActionListener {
         JFileChooser fileChooser = new JFileChooser("./saves");
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
         fileChooser.setAcceptAllFileFilterUsed(false);
-        fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Saved Games", "sav6"));
+        fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Saved Games", "sav5"));
 
         if (fileChooser.showOpenDialog(MainFrame.getInstance()) == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
@@ -123,12 +123,12 @@ public class MenuListener implements ActionListener {
                        JOptionPane.showMessageDialog(MainFrame.getInstance(), "Tohle jeste nefunguje... sorac", "NE", JOptionPane.ERROR_MESSAGE);
                         break;
                     }
-                    case Const.HUMAN - Const.UI: {
-                        game = new LocalGame(new HumanPlayer(p1Name, Value.O), new UIPlayer(p2Name, Value.X));
+                    case Const.HUMAN - Const.AI: {
+                        game = new LocalGame(new HumanPlayer(p1Name, Value.O), new AIPlayer(p2Name, Value.X));
                         break;
                     }
-                    case Const.UI - Const.HUMAN: {
-                        game = new LocalGame(new UIPlayer(p1Name, Value.O), new HumanPlayer(p2Name, Value.X));
+                    case Const.AI - Const.HUMAN: {
+                        game = new LocalGame(new AIPlayer(p1Name, Value.O), new HumanPlayer(p2Name, Value.X));
                         break;
                     }
 
@@ -137,7 +137,7 @@ public class MenuListener implements ActionListener {
                         if (p1Type == Const.HUMAN) {
                             game = new LocalGame(new HumanPlayer(p1Name, Value.O), new HumanPlayer(p2Name, Value.X));
                         } else {
-                            game = new LocalGame(new UIPlayer(p1Name, Value.O), new UIPlayer(p2Name, Value.X));
+                            game = new LocalGame(new AIPlayer(p1Name, Value.O), new AIPlayer(p2Name, Value.X));
                         }
                         break;
                     }

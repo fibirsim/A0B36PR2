@@ -34,8 +34,8 @@ public class CreateLanGame implements Runnable {
             serverSocket = new ServerSocket(Const.PORT);
             serverSocket.setSoTimeout(WAIT);
 
-            timer = new Thread(wcd);
-            timer.start();
+//            timer = new Thread(wcd);
+//            timer.start();
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(MainFrame.getInstance(), "You can\'t crate the game!", "Connection Failed", JOptionPane.ERROR_MESSAGE);
             System.out.println(ex);
@@ -44,7 +44,7 @@ public class CreateLanGame implements Runnable {
         if (serverSocket != null) {
             try {
                 clientSocket = serverSocket.accept();
-                wcd.dispose();
+                //wcd.dispose();
                 ownerDialog.dispose();
                 connected = true;
             } catch (IOException ex) {

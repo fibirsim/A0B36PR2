@@ -1,7 +1,7 @@
 package GUI;
 
-import Games.Game;
 import GUI.util.GameField;
+import Games.Game;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.io.DataInputStream;
@@ -26,7 +26,7 @@ public final class MainFrame extends JFrame {
 
     private MainFrame() {
         super("Piškvorky");
-        this.setSize(810, 810);
+        this.setSize(810, 710);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
